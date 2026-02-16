@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quarter 3 - Showcase</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --red: #7b1d1d;
+  --gold: #e7c16f;
+  --dark: #1a1a1a;
+  --cream: #fff6e8;
+}
+
+* {margin:0;padding:0;box-sizing:border-box;}
+body {font-family:'Poppins',sans-serif;color:var(--dark);overflow-x:hidden;position:relative;background:#fffaf3;}
+
+#sparkles {
+  position: fixed;
+  top:0; left:0;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+  z-index:0;
+}
+.star {
+  position:absolute;
+  width:4px;
+  height:4px;
+  background: var(--gold);
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: sparkle 3s linear infinite;
+}
+@keyframes sparkle{
+  0%{transform:translateY(0) scale(1);opacity:0.8;}
+  50%{transform:translateY(-50px) scale(1.5);opacity:0.4;}
+  100%{transform:translateY(0) scale(1);opacity:0.8;}
+}
+
+nav {position:sticky;top:0;z-index:1000;background:linear-gradient(135deg,#7b1d1d,#a83232,#e7c16f);padding:18px 24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;box-shadow:0 10px 30px rgba(0,0,0,0.25);}
+nav h1 {font-family:'Playfair Display',serif;font-size:clamp(20px,5vw,28px);letter-spacing:2px;color:#fff;}
+.nav-links {display:flex;gap:22px;flex-wrap:wrap;}
+.nav-links a {color:#fff;text-decoration:none;font-size:14px;letter-spacing:1px;position:relative;}
+.nav-links a:hover::after {content:'';position:absolute;left:0;bottom:-3px;width:100%;height:2px;background:var(--gold);}
+.hamburger {display:none;flex-direction:column;cursor:pointer;gap:5px;}
+.hamburger div {width:28px;height:3px;background:#fff;}
+
+.hero {text-align:center;padding:90px 20px 80px;position:relative;z-index:1;background:linear-gradient(-45deg,#fff1df,#fffaf3,#ffe6c7,#fffaf3);background-size:400% 400%;animation:gradientShift 15s ease infinite;}
+@keyframes gradientShift{0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;}}
+.hero h2 {font-family:'Playfair Display',serif;font-size:clamp(38px,9vw,72px);color:var(--red);}
+.hero span {color:var(--gold);}
+.hero p {max-width:760px;margin:18px auto 0;font-size:clamp(14px,4vw,18px);text-align:center;}
+
+.card-container {max-width:1200px;margin:50px auto;padding:20px;text-align:center;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:40px;position:relative;z-index:1;}
+.card {position:relative;cursor:pointer;overflow:hidden;border-radius:12px;box-shadow:0 20px 45px rgba(0,0,0,0.18);transition:transform 0.3s ease;}
+.card img {width:100%;border-radius:12px;display:block;}
+.card h3 {font-family:'Playfair Display',serif;font-size:22px;color:var(--red);margin:12px 0;}
+.card-content {display:none;margin-top:20px;}
+.grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:30px;}
+.video-card img {width:100%;border-radius:10px;box-shadow:0 12px 30px rgba(0,0,0,0.2);}
+.video-card video {width:100%;border-radius:10px;box-shadow:0 12px 30px rgba(0,0,0,0.2);}
+.video-card p {margin-top:10px;font-size:14px;line-height:1.6;text-align:center;}
+
+footer {text-align:center;padding:26px 16px;font-size:13px;background:#7b1d1d;color:white;position:relative;z-index:1;}
+
+@media(max-width:768px){
+  .nav-links{display:none;flex-direction:column;width:100%;gap:10px;margin-top:10px;}
+  .nav-links.active{display:flex;}
+  .hamburger{display:flex;}
+}
+</style>
+</head>
+<body>
+
+<div id="sparkles"></div>
+
+<nav>
+  <h1>Woven Arts</h1>
+  <div class="hamburger" id="hamburger"><div></div><div></div><div></div></div>
+  <div class="nav-links" id="nav-links">
+    <a href="index.html">Home</a>
+    <a href="q1.html">Quarter 1</a>
+    <a href="q2.html">Quarter 2</a>
+    <a href="q3.html">Quarter 3</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <h2>Quarter 3 <span>Showcase</span></h2>
+  <p>Explore our mini-campaign/poster and musical composition & dance performance for Quarter 3.</p>
+</section>
+
+<div class="card-container">
+
+  <!-- POSTER CARD -->
+  <div class="card">
+    <img src="drugs.jpg" alt="Poster & Mini-Campaign">
+    <h3>Poster & Mini-Campaign</h3>
+    <div class="card-content">
+      <div class="grid">
+
+        <div class="video-card">
+          <img src="Drug-free Mini Campaign.png" alt="">
+          <p>
+            This campaign uses the concept of a life story to show how one decision can change everything.
+            The slogan “Don’t Let One Choice Rewrite Your Whole Story” emphasizes the long-term consequences
+            of drug use. It illustrated both a bright future and a dark outcome to represent the health,
+            social, and legal risks involved. The message encourages people to protect their future by
+            making wise and responsible choices.
+          </p>
+        </div>
+
+        <div class="video-card">
+          <img src="Prevention Plan Poster.png" alt="">
+          <p>
+            <strong>Not Just Rules, But Roots.</strong><br><br>
+            True guidance isn’t only about rules to follow — it’s the care, support, and wisdom that form
+            the roots beneath every choice. These artworks show how family, school, and community nurture
+            strength, helping students grow into their best selves and make decisions that shape bright,
+            healthy futures.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- MUSIC CARD -->
+  <div class="card">
+    <img src="Q3_music.jpg" alt="Music & Dance">
+    <h3>Musical Composition & Dance</h3>
+    <div class="card-content">
+      <div class="grid">
+        <div class="video-card">
+          <video controls>
+            <source src="MCDP_Q3.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>© 2026 National Arts Month • Section ONL 8-1 Exhibit</footer>
+
+<script>
+const hamburger=document.getElementById('hamburger');
+const navLinks=document.getElementById('nav-links');
+hamburger.addEventListener('click',()=>{navLinks.classList.toggle('active');});
+
+const sparkleCount=50;
+const sparklesContainer=document.getElementById('sparkles');
+for(let i=0;i<sparkleCount;i++){
+  const star=document.createElement('div');
+  star.classList.add('star');
+  star.style.left=Math.random()*100+'vw';
+  star.style.top=Math.random()*100+'vh';
+  star.style.animationDuration=(Math.random()*3+2)+'s';
+  sparklesContainer.appendChild(star);
+}
+
+document.querySelectorAll('.card').forEach(card=>{
+  card.addEventListener('click',()=>{
+    const content=card.querySelector('.card-content');
+    content.style.display=(content.style.display==='block'?'none':'block');
+  });
+});
+</script>
+
+</body>
+</html>

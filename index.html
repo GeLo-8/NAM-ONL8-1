@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Woven Arts - Magical Edition</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --red: #7b1d1d;
+  --gold: #e7c16f;
+  --dark: #1a1a1a;
+  --cream: #fff6e8;
+}
+
+/* RESET */
+* {margin:0;padding:0;box-sizing:border-box;}
+body {
+  font-family:'Poppins',sans-serif;
+  color: var(--dark);
+  overflow-x:hidden;
+  position:relative;
+  background:#fffaf3;
+}
+
+/* ===== SPARKLES ===== */
+#sparkles {
+  position:fixed;
+  top:0; left:0;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+  z-index:0;
+}
+.star {
+  position:absolute;
+  width:4px;
+  height:4px;
+  background: var(--gold);
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: sparkle 3s linear infinite;
+}
+@keyframes sparkle {
+  0% { transform: translateY(0) scale(1); opacity:0.8; }
+  50% { transform: translateY(-50px) scale(1.5); opacity:0.4; }
+  100% { transform: translateY(0) scale(1); opacity:0.8; }
+}
+
+/* ===== NAVBAR ===== */
+nav {
+  position: sticky;
+  top:0;
+  z-index:1000;
+  background: linear-gradient(135deg,#7b1d1d,#a83232,#e7c16f);
+  padding:18px 24px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  box-shadow:0 10px 30px rgba(0,0,0,0.25);
+}
+nav h1 {
+  font-family:'Playfair Display', serif;
+  font-size:clamp(20px,5vw,28px);
+  letter-spacing:2px;
+  color:#fff;
+}
+.nav-links {
+  display:flex;
+  gap:22px;
+  flex-wrap:wrap;
+}
+.nav-links a {
+  color:#fff;
+  text-decoration:none;
+  font-size:14px;
+  letter-spacing:1px;
+  padding:6px 12px;
+  border-radius:6px;
+  transition:all 0.3s ease;
+  position:relative;
+}
+.nav-links a:hover::after {
+  content:'';
+  position:absolute;
+  left:0;
+  bottom:-3px;
+  width:100%;
+  height:2px;
+  background: var(--gold);
+}
+.hamburger {display:none; flex-direction:column; cursor:pointer; gap:5px;}
+.hamburger div {width:28px;height:3px;background:#fff;transition:all 0.3s ease;}
+
+/* ===== HERO ===== */
+.hero {
+  text-align:center;
+  padding:90px 20px 80px;
+  position:relative;
+  background: linear-gradient(-45deg,#fff1df,#fffaf3,#ffe6c7,#fffaf3);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+}
+@keyframes gradientShift{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+.hero h2 {font-family:'Playfair Display',serif;font-size:clamp(36px,8vw,64px);color:var(--red);}
+.hero span {color:var(--gold);}
+.hero p {max-width:720px;margin:16px auto 0;font-size:clamp(14px,4vw,18px);}
+
+/* ===== ART GALLERY ===== */
+.art-section {
+  max-width:1200px;
+  margin:auto;
+  padding:60px 20px 100px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:60px;
+  position:relative;
+  z-index:1;
+}
+.art-card {
+  background:white;
+  padding:16px;
+  box-shadow:0 20px 45px rgba(0,0,0,0.18);
+  border-radius:10px;
+  position:relative;
+  cursor:pointer;
+}
+.art-card img{width:100%;display:block;border-radius:6px;}
+.art-label {
+  margin-top:14px;
+  background: rgba(255,255,255,0.95);
+  padding:10px;
+  border-radius:6px;
+  display:none; /* hidden initially */
+  transition: all 0.4s ease;
+}
+.art-card.active .art-label {display:block;}
+.art-label h3{font-family:'Playfair Display', serif;font-size:20px;color:var(--red);}
+.art-label p{font-size:14px;margin-top:6px;}
+
+/* ===== FOOTER ===== */
+footer{text-align:center;padding:26px 16px;font-size:13px;background:#7b1d1d;color:white;position:relative;z-index:1;}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:768px){
+  .nav-links{display:none;flex-direction:column;width:100%;gap:10px;margin-top:10px;}
+  .nav-links.active{display:flex;}
+  .hamburger{display:flex;}
+  .hero h2{font-size:clamp(28px,10vw,48px);}
+}
+</style>
+</head>
+
+<body>
+
+<div id="sparkles"></div>
+
+<nav>
+  <h1>Woven Arts</h1>
+  <div class="hamburger" id="hamburger"><div></div><div></div><div></div></div>
+  <div class="nav-links" id="nav-links">
+    <a href="index.html">Home</a>
+    <a href="q1.html">Quarter 1</a>
+    <a href="q2.html">Quarter 2</a>
+    <a href="q3.html">Quarter 3</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <h2>Woven <span>Arts</span></h2>
+  <p>
+    A curated digital gallery showcasing visual arts, performing arts, literary arts, and multimedia/applied arts of our section.
+  </p>
+</section>
+
+<section class="art-section">
+  <div class="art-card" id="q1">
+    <img src="Q1_image.jpg" alt="Quarter 1">
+    <div class="art-label">
+      <h3>Quarter 1</h3>
+      <p>Music, dance, and literary expressions inspired by Filipino identity.</p>
+    </div>
+  </div>
+  <div class="art-card" id="q2">
+    <img src="Q2_image.png" alt="Quarter 2">
+    <div class="art-label">
+      <h3>Quarter 2</h3>
+      <p>Lyrics, cultural analysis, and multimodal artistic communication.</p>
+    </div>
+  </div>
+  <div class="art-card" id="q3">
+    <img src="Q3_image.jpg" alt="Quarter 3">
+    <div class="art-label">
+      <h3>Quarter 3</h3>
+      <p>Mini-campaigns, music, and dance performances inspired by tradition and creativity.</p>
+    </div>
+  </div>
+</section>
+
+<footer>© 2026 National Arts Month • Section ONL 8-1 Exhibit</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  /* Hamburger toggle */
+  const hamburger=document.getElementById('hamburger');
+  const navLinks=document.getElementById('nav-links');
+  hamburger.addEventListener('click',()=>{navLinks.classList.toggle('active');hamburger.classList.toggle('open');});
+
+  /* Global twinkling sparkles */
+  const sparkleCount=60; // more sparkles
+  const sparklesContainer=document.getElementById('sparkles');
+  for(let i=0;i<sparkleCount;i++){
+    const star=document.createElement('div');
+    star.classList.add('star');
+    star.style.left=Math.random()*100+'vw';
+    star.style.top=Math.random()*100+'vh';
+    star.style.width=Math.random()*3+2+'px';
+    star.style.height=star.style.width;
+    star.style.animationDuration=(Math.random()*3+2)+'s';
+    sparklesContainer.appendChild(star);
+  }
+
+  /* Interactive art labels */
+  document.querySelectorAll('.art-card').forEach(card => {
+    card.addEventListener('click', () => {
+      card.classList.toggle('active');
+    });
+  });
+});
+</script>
+
+</body>
+</html>
